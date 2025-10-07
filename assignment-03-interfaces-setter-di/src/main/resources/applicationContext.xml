@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- Two implementations of the same interface -->
+  <bean id="emailService" class="com.revature.EmailService"/>
+  <bean id="smsService"   class="com.revature.SmsService"/>
+
+  <!-- Two clients, each wired via SETTER to a different service -->
+  <bean id="emailClient" class="com.revature.NotificationClient">
+    <property name="messageService" ref="emailService"/>
+  </bean>
+
+  <bean id="smsClient" class="com.revature.NotificationClient">
+    <property name="messageService" ref="smsService"/>
+  </bean>
+
+</beans>
