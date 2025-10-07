@@ -1,0 +1,12 @@
+Bean Factory
+
+Bean Factory is utilized for dependency injection, which means providing a class with the resources and instances of other objects/tools 
+needed to function. Bean Factory manages beans (objects), which can be lazily initialized and injected. It is lightweight, fast, and 
+easy to understand, and is preferably used for simple applications with limited resources.
+
+Application Context
+
+Application Context is a superset of Bean Factory, meaning it provides bean (object) dependency injection, creation, and 
+initialization similar to Bean Factory, plus advanced features. Some of these features include eager initialization 
+(objects and dependencies created at startup), event publishing, and resource management. 
+Application Context is the preferred object manager for more complex applications.

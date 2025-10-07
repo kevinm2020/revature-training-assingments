@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!-- Implementations -->
+  <bean id="creditCardPayment" class="com.revature.CreditCardPayment"/>
+  <bean id="paypalPayment"     class="com.revature.PaypalPayment"/>
+
+  <!-- Processors wired by SETTER to different payment beans -->
+  <bean id="ccProcessor" class="com.revature.PaymentProcessor">
+    <property name="payment" ref="creditCardPayment"/>
+  </bean>
+
+  <bean id="paypalProcessor" class="com.revature.PaymentProcessor">
+    <property name="payment" ref="paypalPayment"/>
+  </bean>
+</beans>
